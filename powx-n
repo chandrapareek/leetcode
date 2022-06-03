@@ -1,0 +1,17 @@
+double myPow(double x, int n) {
+        long k = abs(n);
+        
+        double ans = 1;
+      while(k){
+           if(k%2 == 0){
+               x *=x;
+               k /= 2;
+           }
+           else{
+               ans *= x;
+               k--;
+           }     
+       }
+        if(n < 0) return double(1)/ans;
+        return ans;
+    }
