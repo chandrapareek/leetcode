@@ -1,0 +1,21 @@
+vector<int> Solution::repeatedNumber(const vector<int> &a) {
+    vector<int> v;
+    long long int n= a.size();
+    long long int s2=0,s=0,s1=0,s21=0;
+    for(long long int i=0;i<n;i++){
+        s += (long long int)a[i];
+        s2 += (long long int)a[i]*(long long int)a[i];
+    }
+    for(long long int i=1;i<=n;i++){
+        s1 += i;
+        s21 += i*i;
+    }
+
+    long int sq_diff = s21 - s2;
+    long int sm_diff = s1 - s;
+    long int m = (sm_diff + sq_diff/sm_diff)/2;
+    long int r = m - sm_diff;
+    v.push_back(r);
+    v.push_back(m);
+    return v;
+}
