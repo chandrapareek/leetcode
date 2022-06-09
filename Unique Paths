@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int a[m][n];
+        for(int i=0;i<m;i++)
+            a[i][n-1] = 1;
+        for(int i=0;i<n;i++)
+            a[m-1][i] = 1;
+        for(int i=m-2;i>=0;i--)
+            for(int j=n-2;j>=0;j--)
+                a[i][j] = a[i+1][j] + a[i][j+1];
+            
+        return a[0][0];
+    }
+};
+
+
+we start from the rightmost end and go to the leftmost start
+and add the right and below box value cause it can only go in 
+these directions and value in the box represent the ways possible 
+from that box to reach the end 
+
+value of all boxes for 3 x 7 matrix
+
+      28 21 15 10 6 3 1 
+      7   6  5  4 3 2 1 
+      1   1  1  1 1 1 1 
