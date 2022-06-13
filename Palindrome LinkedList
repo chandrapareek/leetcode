@@ -1,5 +1,4 @@
-    RIGHT ANSWER BUT NOT GOOD APPROACH O(N2) TIME AND O(N) SPACE
-    
+  
     bool isPalindrome(ListNode* head) {
         if(head == NULL || head->next == NULL)
             return true; 
@@ -30,7 +29,5 @@
         return true;
         
     }
-    
-    BETTER APPROACH THAN PREVIOUS ONE O(N) TIME AND O(1) SPACE
     
     
