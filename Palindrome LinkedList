@@ -1,0 +1,36 @@
+    RIGHT ANSWER BUT NOT GOOD APPROACH O(N2) TIME AND O(N) SPACE
+    
+    bool isPalindrome(ListNode* head) {
+        if(head == NULL || head->next == NULL)
+            return true; 
+        ListNode *pointer = head;
+        int count = 0;
+        while(pointer){
+            count++;
+            pointer = pointer->next;
+        }
+        
+        pointer = head;
+        vector<int> v;
+        for(int i=0;i<count/2;i++){
+            v.push_back(pointer->val);
+            pointer = pointer->next;
+        }
+        
+        if(count%2 != 0)
+            pointer = pointer->next;
+        
+        while(pointer){
+            if(v.back()!= pointer->val)
+                return false;
+            v.pop_back();
+            pointer = pointer->next;
+        }
+        
+        return true;
+        
+    }
+    
+    BETTER APPROACH THAN PREVIOUS ONE O(N) TIME AND O(1) SPACE
+    
+    
