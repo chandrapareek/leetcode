@@ -1,0 +1,15 @@
+#NEW CONCEPT -> A node can be stored in a map
+
+ListNode *detectCycle(ListNode *head) {
+        if(head == NULL || head->next == NULL)
+            return NULL;
+        map<ListNode*,int> m;
+        int i = 0;
+        
+        while(head){
+            if(m.find(head) != m.end())
+                return head;
+            m[head] = i++;
+            head = head->next;   
+        }
+        return NULL;
