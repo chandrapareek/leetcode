@@ -1,0 +1,21 @@
+ListNode* rotateRight(ListNode* head, int k) {
+        if(!head || !head->next || k==0)  // Base case 
+            return head;
+        ListNode* curr=head;  // Dummy node
+        int count=1;
+        while(curr->next!=NULL)
+        {
+            count+=1;       // Counted the length of the linked list
+            curr=curr->next;
+        }
+        curr->next=head;    // Connected the last node to the head
+        k=k%count;    
+        k=count-k;
+        while(k--)
+        {
+            curr=curr->next;
+        }
+        head=curr->next;
+        curr->next=NULL;
+        return head;
+    }
