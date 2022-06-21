@@ -1,0 +1,32 @@
+we only need platform count so both array can be sorted individually
+and then res can be taken as platforms required
+
+
+int findPlatform(int arr[], int dep[], int n)
+    {
+    	// Your code here
+    
+    	sort(arr, arr+n);
+    	sort(dep, dep+n);
+    	
+    	int res = 1,plat = 1;
+    	int i=1,j=0;
+    	
+    	while(i<n && j<n){
+    	    if(arr[i] > dep[j]){
+    	        plat--;
+    	        j++;
+    	    }
+    	    
+    	    else if(arr[i] <= dep[j]){
+    	        plat++;
+    	        i++;
+    	    }
+    	    
+    	    if(plat > res)
+    	        res = plat;
+    	    
+    	}
+    	
+    	return res;
+    }
