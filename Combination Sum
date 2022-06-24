@@ -1,0 +1,21 @@
+void func(int ind,int target, vector<int>& a, vector<vector<int>> &v,vector<int> &ds){
+        if(ind == a.size()){
+            if(target == 0)
+                v.push_back(ds);
+                return;
+        }
+        if(target >= a[ind]){
+         ds.push_back(a[ind]);   
+        func(ind,target-a[ind],a,v,ds);
+        ds.pop_back();
+        }
+        
+        func(ind+1,target,a,v,ds);
+        
+    }
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> v;
+        vector<int> ds;
+        func(0,target,candidates,v,ds);
+        return v;
+    }
