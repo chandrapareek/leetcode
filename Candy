@@ -1,0 +1,20 @@
+ int candy(vector<int>& ratings) {
+        int n = ratings.size();
+        int total_candies = n;
+        vector<int> up(n,1),down(n,1);
+        for(int i=0;i<n-1;i++){
+            if(ratings[i] < ratings[i+1])
+                up[i+1] = up[i] + 1;
+        }
+        
+        for(int i = n-1;i>0;i--){
+            if(ratings[i]  < ratings[i-1]){
+                down[i-1] = down[i] + 1;
+            }
+        }
+        
+        for(int i = 0;i<n;i++){
+            total_candies += max(up[i],down[i])
+        }
+        return total_candies;
+    }
