@@ -1,0 +1,15 @@
+  
+   bool searchMatrix(vector<vector<int>>& v, int target) {
+        int rows = v.size(),row = 0,col = v[0].size()-1;
+        while(row < rows && col > -1){
+            int cur = v[row][col];
+            if(cur == target) return true;
+            if(cur < target) row++;
+            else col--;
+        }
+        
+        return false;
+    }
+    
+    <img align="center" src="https://drive.google.com/file/d/1xJtwHnplqYBUZT28-8qajqewdbrqkNwC/view?usp=sharing">
+    
