@@ -1,0 +1,30 @@
+    hr integer ke liye 1 element uski row ki pos ka insert hoga, ek uski col ki position ka and ek uski 3x3 ke matrix ke andr posn ka 
+    string set ka use krke hum sirf ek set se kaam chla skte h vrna 3 set ka use krna pdta
+    
+    bool isValidSudoku(vector<vector<char>>& board) {
+        unordered_set<string> s;
+        
+        for(int i = 0;i<board.size();i++){
+            for(int j = 0;j<board[0].size();j++){
+                int cur = board[i][j];
+                if(cur != '.'){
+                 string row = "row" + to_string(cur) + to_string(i);
+                 string col = "col" + to_string(cur) + to_string(j);
+                 string box = "box" + to_string(cur) + to_string(i/3) + "-" + to_string(j/3);
+                    
+                if(s.find(row) != s.end() || s.find(col) != s.end() ||
+                  s.find(box) != s.end())
+                    return false;
+                
+                s.insert(row);
+                s.insert(col);
+                s.insert(box);
+                }
+            }
+        }
+        
+        
+        return true;
+        
+    
+    }
