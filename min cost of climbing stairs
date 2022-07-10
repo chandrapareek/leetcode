@@ -1,0 +1,16 @@
+dp array m store krte jayenge cost ko until we reach the top of stairs hr stair ki cost uski cost + uske just phle wali 2 stairs m se min cost wali kyunki hm
+ek step m ek ya 2 stair paar kr skte h 
+
+int minCostClimbingStairs(vector<int>& cost) {
+        int n = cost.size();
+        vector<int> dp(n,0);
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+        for(int i = 2;i<n;i++){
+            dp[i] = cost[i] + min(dp[i-1],dp[i-2]);
+        }
+        
+        return min(dp[n-1],dp[n-2]);
+        
+        
+    }
