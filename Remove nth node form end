@@ -1,0 +1,25 @@
+ delting temp2 node decrease the runtime very much don't know how
+ 
+ 
+ ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* temp = head;
+        ListNode* temp2 = head;
+        int count=0;
+        
+        
+        while(temp2 != NULL){
+            temp2 = temp2->next;
+            count++;
+        }
+        if(n==count)
+            return head->next;
+        
+        for(int i=0;i<count-n-1;i++){
+            temp = temp->next;
+        }
+        temp2 = temp->next;
+        temp->next = temp->next->next;
+        delete(temp2);
+        
+        return head;
+    }
