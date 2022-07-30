@@ -1,0 +1,17 @@
+    bool isIsomorphic(string s, string t) {
+        int m1[256] = {0},m2[256] = {0};
+        if(s.length() != t.length())
+            return false;
+        for(int i = 0; i<s.length();i++){
+            if(m1[s[i]] != m2[t[i]])
+                return false;
+            m1[s[i]] = i+1;
+            m2[t[i]] = i+1;
+        }
+        
+        return true;
+        
+    }
+    
+   make 2 arrays of 256 length for all ASCII values then assign the character to be replaced by each other same number and check every time in the
+   loop that there is same number on both indexes if not return false;
